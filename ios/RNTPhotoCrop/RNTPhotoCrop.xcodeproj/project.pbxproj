@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DFE53A321FAAF5700E27DD9 /* RNTPhotoCropModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */; };
+		9DFE53A421FAAF5700E27DD9 /* RNTPhotoCropModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */; };
+		9DFE540121FAB07D00E27DD9 /* Compressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53EE21FAB07D00E27DD9 /* Compressor.swift */; };
+		9DFE540221FAB07D00E27DD9 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53EF21FAB07D00E27DD9 /* Util.swift */; };
+		9DFE540321FAB07D00E27DD9 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F121FAB07D00E27DD9 /* SimpleButton.swift */; };
+		9DFE540421FAB07D00E27DD9 /* PhotoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F221FAB07D00E27DD9 /* PhotoCropViewController.swift */; };
+		9DFE540521FAB07D00E27DD9 /* PhotoCropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F321FAB07D00E27DD9 /* PhotoCropDelegate.swift */; };
+		9DFE540621FAB07D00E27DD9 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F521FAB07D00E27DD9 /* PhotoView.swift */; };
+		9DFE540721FAB07D00E27DD9 /* PhotoCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F621FAB07D00E27DD9 /* PhotoCrop.swift */; };
+		9DFE540821FAB07D00E27DD9 /* CropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F821FAB07D00E27DD9 /* CropArea.swift */; };
+		9DFE540921FAB07D00E27DD9 /* CropFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F921FAB07D00E27DD9 /* CropFile.swift */; };
+		9DFE540A21FAB07D00E27DD9 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FB21FAB07D00E27DD9 /* OverlayView.swift */; };
+		9DFE540B21FAB07D00E27DD9 /* ForegroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FC21FAB07D00E27DD9 /* ForegroundView.swift */; };
+		9DFE540C21FAB07D00E27DD9 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FD21FAB07D00E27DD9 /* FinderView.swift */; };
+		9DFE540D21FAB07D00E27DD9 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FE21FAB07D00E27DD9 /* GridView.swift */; };
+		9DFE540E21FAB07D00E27DD9 /* PhotoCropConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE540021FAB07D00E27DD9 /* PhotoCropConfiguration.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9DFE539C21FAAF5700E27DD9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				9DFE53A421FAAF5700E27DD9 /* RNTPhotoCropModule.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9DFE539E21FAAF5700E27DD9 /* libRNTPhotoCrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNTPhotoCrop.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTPhotoCropModule.h; sourceTree = "<group>"; };
+		9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTPhotoCropModule.m; sourceTree = "<group>"; };
+		9DFE53EE21FAB07D00E27DD9 /* Compressor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compressor.swift; sourceTree = "<group>"; };
+		9DFE53EF21FAB07D00E27DD9 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		9DFE53F121FAB07D00E27DD9 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
+		9DFE53F221FAB07D00E27DD9 /* PhotoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropViewController.swift; sourceTree = "<group>"; };
+		9DFE53F321FAB07D00E27DD9 /* PhotoCropDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropDelegate.swift; sourceTree = "<group>"; };
+		9DFE53F521FAB07D00E27DD9 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		9DFE53F621FAB07D00E27DD9 /* PhotoCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCrop.swift; sourceTree = "<group>"; };
+		9DFE53F821FAB07D00E27DD9 /* CropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropArea.swift; sourceTree = "<group>"; };
+		9DFE53F921FAB07D00E27DD9 /* CropFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropFile.swift; sourceTree = "<group>"; };
+		9DFE53FB21FAB07D00E27DD9 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		9DFE53FC21FAB07D00E27DD9 /* ForegroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundView.swift; sourceTree = "<group>"; };
+		9DFE53FD21FAB07D00E27DD9 /* FinderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
+		9DFE53FE21FAB07D00E27DD9 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		9DFE540021FAB07D00E27DD9 /* PhotoCropConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropConfiguration.swift; sourceTree = "<group>"; };
+		9DFE541221FAB61100E27DD9 /* RNTPhotoCrop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNTPhotoCrop-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DFE539B21FAAF5700E27DD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DFE539521FAAF5700E27DD9 = {
+			isa = PBXGroup;
+			children = (
+				9DFE53A021FAAF5700E27DD9 /* RNTPhotoCrop */,
+				9DFE539F21FAAF5700E27DD9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DFE539F21FAAF5700E27DD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE539E21FAAF5700E27DD9 /* libRNTPhotoCrop.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DFE53A021FAAF5700E27DD9 /* RNTPhotoCrop */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53EC21FAB07D00E27DD9 /* PhotoCrop */,
+				9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */,
+				9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */,
+				9DFE541221FAB61100E27DD9 /* RNTPhotoCrop-Bridging-Header.h */,
+			);
+			path = RNTPhotoCrop;
+			sourceTree = "<group>";
+		};
+		9DFE53EC21FAB07D00E27DD9 /* PhotoCrop */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53ED21FAB07D00E27DD9 /* util */,
+				9DFE53F021FAB07D00E27DD9 /* SimpleButton */,
+				9DFE53F221FAB07D00E27DD9 /* PhotoCropViewController.swift */,
+				9DFE53F321FAB07D00E27DD9 /* PhotoCropDelegate.swift */,
+				9DFE53F421FAB07D00E27DD9 /* PhotoView */,
+				9DFE53F621FAB07D00E27DD9 /* PhotoCrop.swift */,
+				9DFE53F721FAB07D00E27DD9 /* model */,
+				9DFE53FA21FAB07D00E27DD9 /* view */,
+				9DFE540021FAB07D00E27DD9 /* PhotoCropConfiguration.swift */,
+			);
+			path = PhotoCrop;
+			sourceTree = "<group>";
+		};
+		9DFE53ED21FAB07D00E27DD9 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53EE21FAB07D00E27DD9 /* Compressor.swift */,
+				9DFE53EF21FAB07D00E27DD9 /* Util.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		9DFE53F021FAB07D00E27DD9 /* SimpleButton */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53F121FAB07D00E27DD9 /* SimpleButton.swift */,
+			);
+			path = SimpleButton;
+			sourceTree = "<group>";
+		};
+		9DFE53F421FAB07D00E27DD9 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53F521FAB07D00E27DD9 /* PhotoView.swift */,
+			);
+			path = PhotoView;
+			sourceTree = "<group>";
+		};
+		9DFE53F721FAB07D00E27DD9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53F821FAB07D00E27DD9 /* CropArea.swift */,
+				9DFE53F921FAB07D00E27DD9 /* CropFile.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9DFE53FA21FAB07D00E27DD9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE53FB21FAB07D00E27DD9 /* OverlayView.swift */,
+				9DFE53FC21FAB07D00E27DD9 /* ForegroundView.swift */,
+				9DFE53FD21FAB07D00E27DD9 /* FinderView.swift */,
+				9DFE53FE21FAB07D00E27DD9 /* GridView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DFE539D21FAAF5700E27DD9 /* RNTPhotoCrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DFE53A721FAAF5700E27DD9 /* Build configuration list for PBXNativeTarget "RNTPhotoCrop" */;
+			buildPhases = (
+				9DFE539A21FAAF5700E27DD9 /* Sources */,
+				9DFE539B21FAAF5700E27DD9 /* Frameworks */,
+				9DFE539C21FAAF5700E27DD9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNTPhotoCrop;
+			productName = RNTPhotoCrop;
+			productReference = 9DFE539E21FAAF5700E27DD9 /* libRNTPhotoCrop.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DFE539621FAAF5700E27DD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = finstao;
+				TargetAttributes = {
+					9DFE539D21FAAF5700E27DD9 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 9DFE539921FAAF5700E27DD9 /* Build configuration list for PBXProject "RNTPhotoCrop" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9DFE539521FAAF5700E27DD9;
+			productRefGroup = 9DFE539F21FAAF5700E27DD9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DFE539D21FAAF5700E27DD9 /* RNTPhotoCrop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DFE539A21FAAF5700E27DD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFE540E21FAB07D00E27DD9 /* PhotoCropConfiguration.swift in Sources */,
+				9DFE540721FAB07D00E27DD9 /* PhotoCrop.swift in Sources */,
+				9DFE540921FAB07D00E27DD9 /* CropFile.swift in Sources */,
+				9DFE540121FAB07D00E27DD9 /* Compressor.swift in Sources */,
+				9DFE540521FAB07D00E27DD9 /* PhotoCropDelegate.swift in Sources */,
+				9DFE540A21FAB07D00E27DD9 /* OverlayView.swift in Sources */,
+				9DFE540C21FAB07D00E27DD9 /* FinderView.swift in Sources */,
+				9DFE540621FAB07D00E27DD9 /* PhotoView.swift in Sources */,
+				9DFE540221FAB07D00E27DD9 /* Util.swift in Sources */,
+				9DFE53A321FAAF5700E27DD9 /* RNTPhotoCropModule.m in Sources */,
+				9DFE540821FAB07D00E27DD9 /* CropArea.swift in Sources */,
+				9DFE540D21FAB07D00E27DD9 /* GridView.swift in Sources */,
+				9DFE540B21FAB07D00E27DD9 /* ForegroundView.swift in Sources */,
+				9DFE540321FAB07D00E27DD9 /* SimpleButton.swift in Sources */,
+				9DFE540421FAB07D00E27DD9 /* PhotoCropViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9DFE53A521FAAF5700E27DD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9DFE53A621FAAF5700E27DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DFE53A821FAAF5700E27DD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N276SVAZ33;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../react-native/React/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DFE53A921FAAF5700E27DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N276SVAZ33;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../react-native/React/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DFE539921FAAF5700E27DD9 /* Build configuration list for PBXProject "RNTPhotoCrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DFE53A521FAAF5700E27DD9 /* Debug */,
+				9DFE53A621FAAF5700E27DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DFE53A721FAAF5700E27DD9 /* Build configuration list for PBXNativeTarget "RNTPhotoCrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DFE53A821FAAF5700E27DD9 /* Debug */,
+				9DFE53A921FAAF5700E27DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DFE539621FAAF5700E27DD9 /* Project object */;
+}
