@@ -3,7 +3,7 @@ import UIKit
 
 public class PhotoCropViewController: UIViewController {
     
-    @objc public static var loadImage: ((String, (UIImage?) -> Void) -> Void)!
+    @objc public static var loadImage: ((String, @escaping (UIImage?) -> Void) -> Void)!
     
     @objc public var delegate: PhotoCropDelegate!
     @objc public var configuration: PhotoCropConfiguration!
@@ -138,9 +138,11 @@ public class PhotoCropViewController: UIViewController {
             guard let _self = self, let image = image else {
                 return
             }
-            _self.photoCrop.image = image
-
-            Timer.scheduledTimer(timeInterval: 0.5, target: _self, selector: #selector(startCropping), userInfo: nil, repeats: false)
+            
+            DispatchQueue.main.async {
+                _self.photoCrop.image = image
+                Timer.scheduledTimer(timeInterval: 0.5, target: _self, selector: #selector(_self.startCropping), userInfo: nil, repeats: false)
+            }
             
         }
         

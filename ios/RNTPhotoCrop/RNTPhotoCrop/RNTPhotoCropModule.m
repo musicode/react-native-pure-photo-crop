@@ -32,8 +32,8 @@ RCT_EXPORT_MODULE(RNTPhotoCrop);
 RCT_EXPORT_METHOD(open:(NSString *)url
                   width:(int)width
                   height:(int)height
-                  resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject) {
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
     
     self.resolve = resolve;
     self.reject = reject;
@@ -59,8 +59,8 @@ RCT_EXPORT_METHOD(compress:(NSString *)path
                   maxWidth:(int)maxWidth
                   maxHeight:(int)maxHeight
                   quality:(float)quality
-                  resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject) {
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
     
     CropFile *source = [[CropFile alloc] initWithPath:path size:size width:width height:height];
 

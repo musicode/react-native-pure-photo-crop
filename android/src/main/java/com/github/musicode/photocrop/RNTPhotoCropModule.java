@@ -83,7 +83,7 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
         map.putInt("width", result.getWidth());
         map.putInt("height", result.getHeight());
 
-        promise.resolve(result);
+        promise.resolve(map);
 
     }
 
