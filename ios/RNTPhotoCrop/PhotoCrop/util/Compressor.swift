@@ -39,7 +39,7 @@ import UIKit
         var height = source.height
 
         let ratio = height > 0 ? width / height : 1
-        
+
         if width > maxWidth && height > maxHeight {
             // 看短边
             if width / maxWidth > height / maxHeight {

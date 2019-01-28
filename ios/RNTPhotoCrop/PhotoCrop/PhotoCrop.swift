@@ -293,7 +293,7 @@ public class PhotoCrop: UIView {
     public func compress(source: CropFile) -> CropFile {
         
         return Compressor(maxSize: configuration.maxSize, quality: configuration.quality)
-            .compress(source: source, width: configuration.cropWidth, height: configuration.cropWidth)
+            .compress(source: source, width: configuration.cropWidth, height: configuration.cropHeight)
         
     }
     

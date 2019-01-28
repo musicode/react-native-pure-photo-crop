@@ -1,12 +1,14 @@
 package com.github.musicode.photocrop;
 
 import android.app.Activity;
+import android.content.Context;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.github.herokotlin.photocrop.PhotoCropActivity;
 import com.github.herokotlin.photocrop.PhotoCropCallback;
@@ -14,6 +16,8 @@ import com.github.herokotlin.photocrop.PhotoCropConfiguration;
 import com.github.herokotlin.photocrop.model.CropFile;
 import com.github.herokotlin.photocrop.util.Compressor;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function3;
 
 public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
@@ -25,7 +29,7 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
         this.reactContext = reactContext;
     }
 
-    public static void setImageLoader(Function3 loader) {
+    public static void setImageLoader(Function3<Context, String, Function1, Unit> loader) {
         PhotoCropActivity.Companion.setLoadImage(loader);
     }
 
@@ -35,11 +39,11 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void open(String url, int width, int height, final Promise promise) {
+    public void open(ReadableMap options, final Promise promise) {
 
         PhotoCropConfiguration configuration = new PhotoCropConfiguration() {};
-        configuration.setCropWidth(width);
-        configuration.setCropHeight(height);
+        configuration.setCropWidth(options.getInt("width"));
+        configuration.setCropHeight(options.getInt("height"));
 
         PhotoCropCallback callback = new PhotoCropCallback() {
             @Override
@@ -65,16 +69,26 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
         PhotoCropActivity.Companion.setConfiguration(configuration);
         PhotoCropActivity.Companion.setCallback(callback);
 
-        PhotoCropActivity.Companion.newInstance(reactContext.getCurrentActivity(), url);
+        PhotoCropActivity.Companion.newInstance(reactContext.getCurrentActivity(), options.getString("url"));
 
     }
 
     @ReactMethod
-    public void compress(String path, int size, int width, int height, int maxSize, int maxWith, int maxHeight, float quality, Promise promise) {
+    public void compress(ReadableMap options, Promise promise) {
 
-        CropFile file = new CropFile(path, size, width, height);
+        CropFile file = new CropFile(
+            options.getString("path"),
+            options.getInt("size"),
+            options.getInt("width"),
+            options.getInt("height")
+        );
 
-        Compressor compressor = new Compressor(maxWith, maxHeight, maxSize, quality);
+        Compressor compressor = new Compressor(
+            options.getInt("maxWidth"),
+            options.getInt("maxHeight"),
+            options.getInt("maxSize"),
+            (float)options.getDouble("quality")
+        );
         CropFile result = compressor.compress(reactContext.getCurrentActivity(), file);
 
         WritableMap map = Arguments.createMap();

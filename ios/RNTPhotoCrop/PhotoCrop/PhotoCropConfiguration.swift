@@ -20,7 +20,7 @@ import UIKit
     @objc public var finderMaxWidth: CGFloat = 0
     @objc public var finderMaxHeight: CGFloat = 0
     
-    @objc public var gridLineColor = UIColor.white
+    @objc public var gridLineColor = UIColor.white.withAlphaComponent(0.6)
     @objc public var gridLineWidth = 1 / UIScreen.main.scale
     
     @objc public var overlayBlurAlpha: CGFloat = 1

@@ -17,5 +17,5 @@ android {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.github.herokotlin:PhotoCrop:0.0.3'
+    implementation 'com.github.herokotlin:PhotoCrop:0.0.4'
 }

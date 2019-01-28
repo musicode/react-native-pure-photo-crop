@@ -21,17 +21,15 @@
     [photoCrop dismissViewControllerAnimated:true completion:nil];
     self.resolve(@{
                    @"path": cropFile.path,
-                   @"size": [NSNumber numberWithInteger:cropFile.size],
-                   @"width": [NSNumber numberWithInteger:cropFile.width],
-                   @"height": [NSNumber numberWithInteger:cropFile.height]
+                   @"size": @(cropFile.size),
+                   @"width": @(cropFile.width),
+                   @"height": @(cropFile.height)
                    });
 }
 
 RCT_EXPORT_MODULE(RNTPhotoCrop);
 
-RCT_EXPORT_METHOD(open:(NSString *)url
-                  width:(int)width
-                  height:(int)height
+RCT_EXPORT_METHOD(open:(NSDictionary*)options
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject) {
     
@@ -41,26 +39,28 @@ RCT_EXPORT_METHOD(open:(NSString *)url
     PhotoCropViewController *controller = [PhotoCropViewController new];
     
     PhotoCropConfiguration *configuration = [PhotoCropConfiguration new];
-    configuration.cropWidth = width;
-    configuration.cropHeight = height;
+    configuration.cropWidth = [RCTConvert int:options[@"width"]];
+    configuration.cropHeight = [RCTConvert int:options[@"height"]];
     
     controller.delegate = self;
     controller.configuration = configuration;
 
-    [controller showWithUrl:url];
+    [controller showWithUrl:[RCTConvert NSString:options[@"url"]]];
     
 }
 
-RCT_EXPORT_METHOD(compress:(NSString *)path
-                  size:(int)size
-                  width:(int)width
-                  height:(int)height
-                  maxSize:(int)maxSize
-                  maxWidth:(int)maxWidth
-                  maxHeight:(int)maxHeight
-                  quality:(float)quality
+RCT_EXPORT_METHOD(compress:(NSDictionary*)options
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject) {
+    
+    NSString *path = [RCTConvert NSString:options[@"path"]];
+    int size = [RCTConvert int:options[@"size"]];
+    int width = [RCTConvert int:options[@"width"]];
+    int height = [RCTConvert int:options[@"height"]];
+    int maxSize = [RCTConvert int:options[@"maxSize"]];
+    int maxWidth = [RCTConvert int:options[@"maxWidth"]];
+    int maxHeight = [RCTConvert int:options[@"maxHeight"]];
+    float quality = [RCTConvert float:options[@"quality"]];
     
     CropFile *source = [[CropFile alloc] initWithPath:path size:size width:width height:height];
 
@@ -69,9 +69,9 @@ RCT_EXPORT_METHOD(compress:(NSString *)path
     
     resolve(@{
               @"path": result.path,
-              @"size": [NSNumber numberWithInteger:result.size],
-              @"width": [NSNumber numberWithInteger:result.width],
-              @"height": [NSNumber numberWithInteger:result.height]
+              @"size": @(result.size),
+              @"width": @(result.width),
+              @"height": @(result.height)
              });
     
 }
