@@ -40,9 +40,6 @@ public class PhotoCrop: UIView {
                 self.foregroundView.updateImageOrigin()
             }
         }
-        view.calculateMaxScale = { scale in
-            return 1
-        }
         
         foregroundView.photoView = view
         

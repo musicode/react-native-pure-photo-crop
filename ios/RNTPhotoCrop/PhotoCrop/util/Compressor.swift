@@ -35,6 +35,15 @@ import UIKit
             return source
         }
         
+        guard let image = UIImage(contentsOfFile: source.path) else {
+            return source
+        }
+        
+        let lowQuality = Util.shared.createNewFile(image: image, quality: quality) ?? source
+        if lowQuality.size < maxSize {
+            return lowQuality
+        }
+        
         var width = source.width
         var height = source.height
 
@@ -59,8 +68,12 @@ import UIKit
             height = maxHeight
             width = height * ratio
         }
-
-        return compress(source: source, width: width, height: height)
+        
+        if width != source.width || height != source.height {
+            return compress(image: image, source: source, width: width, height: height)
+        }
+        
+        return lowQuality
 
     }
     
@@ -71,15 +84,21 @@ import UIKit
             return source
         }
         
-        guard var image = UIImage(contentsOfFile: source.path) else {
+        guard let image = UIImage(contentsOfFile: source.path) else {
             return source
         }
         
-        image = Util.shared.createNewImage(image: image, size: CGSize(width: width, height: height), scale: 1)
+        return compress(image: image, source: source, width: width, height: height)
         
-        var result = Util.shared.createNewFile(image: image, quality: 1)
+    }
+    
+    private func compress(image: UIImage, source: CropFile, width: CGFloat, height: CGFloat) -> CropFile {
+        
+        let scaledImage = Util.shared.createNewImage(image: image, size: CGSize(width: width, height: height), scale: 1)
+        
+        var result = Util.shared.createNewFile(image: scaledImage, quality: 1)
         if let file = result, file.size > maxSize {
-            result = Util.shared.createNewFile(image: image, quality: quality)
+            result = Util.shared.createNewFile(image: scaledImage, quality: quality)
         }
         
         return result ?? source
