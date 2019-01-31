@@ -90,11 +90,15 @@ public class PhotoCropViewController: UIViewController {
             guard let image = self.photoCrop.crop() else {
                 return
             }
-            guard let file = self.photoCrop.save(image: image) else {
-                return
+            DispatchQueue.global(qos: .default).async {
+                guard let file = self.photoCrop.save(image: image) else {
+                    return
+                }
+                let result = self.photoCrop.compress(source: file)
+                DispatchQueue.main.async {
+                    self.delegate.photoCropDidSubmit(self, cropFile: result)
+                }
             }
-            let result = self.photoCrop.compress(source: file)
-            self.delegate.photoCropDidSubmit(self, cropFile: result)
         }
         
         

@@ -2,6 +2,8 @@ package com.github.musicode.photocrop;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
@@ -74,30 +76,47 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void compress(ReadableMap options, Promise promise) {
+    public void compress(final ReadableMap options, final Promise promise) {
 
-        CropFile file = new CropFile(
+        final CropFile file = new CropFile(
             options.getString("path"),
             options.getInt("size"),
             options.getInt("width"),
             options.getInt("height")
         );
 
-        Compressor compressor = new Compressor(
+        final Compressor compressor = new Compressor(
             options.getInt("maxWidth"),
             options.getInt("maxHeight"),
             options.getInt("maxSize"),
             (float)options.getDouble("quality")
         );
-        CropFile result = compressor.compress(reactContext.getCurrentActivity(), file);
 
-        WritableMap map = Arguments.createMap();
-        map.putString("path", result.getPath());
-        map.putInt("size", (int)result.getSize());
-        map.putInt("width", result.getWidth());
-        map.putInt("height", result.getHeight());
+        final String imageDir = reactContext.getExternalCacheDir().getAbsolutePath();
 
-        promise.resolve(map);
+        final Handler handler = new Handler(Looper.getMainLooper());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                CropFile result = compressor.compress(imageDir, file);
+
+                final WritableMap map = Arguments.createMap();
+                map.putString("path", result.getPath());
+                map.putInt("size", (int)result.getSize());
+                map.putInt("width", result.getWidth());
+                map.putInt("height", result.getHeight());
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        promise.resolve(map);
+                    }
+                });
+
+            }
+        }).start();
 
     }
 

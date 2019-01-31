@@ -63,16 +63,27 @@ RCT_EXPORT_METHOD(compress:(NSDictionary*)options
     float quality = [RCTConvert float:options[@"quality"]];
     
     CropFile *source = [[CropFile alloc] initWithPath:path size:size width:width height:height];
-
     Compressor *compressor = [[Compressor alloc] initWithMaxWidth:maxWidth maxHeight:maxHeight maxSize:maxSize quality:quality];
-    CropFile *result = [compressor compressWithSource:source];
     
-    resolve(@{
-              @"path": result.path,
-              @"size": @(result.size),
-              @"width": @(result.width),
-              @"height": @(result.height)
-             });
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+
+        CropFile *result = [compressor compressWithSource:source];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            resolve(@{
+                      @"path": result.path,
+                      @"size": @(result.size),
+                      @"width": @(result.width),
+                      @"height": @(result.height)
+                      });
+        });
+        
+        
+    });
+    
+    
     
 }
 
