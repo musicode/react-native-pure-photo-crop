@@ -1,6 +1,6 @@
 {
   "name": "react-native-pure-photo-crop",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "react native photo crop",
   "main": "index.js",
   "scripts": {
