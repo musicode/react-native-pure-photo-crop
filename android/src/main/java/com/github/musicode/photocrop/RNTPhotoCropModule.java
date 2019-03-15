@@ -46,6 +46,9 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
         PhotoCropConfiguration configuration = new PhotoCropConfiguration() {};
         configuration.setCropWidth(options.getInt("width"));
         configuration.setCropHeight(options.getInt("height"));
+        configuration.setCancelButtonTitle(options.getString("cancelButtonTitle"));
+        configuration.setResetButtonTitle(options.getString("resetButtonTitle"));
+        configuration.setSubmitButtonTitle(options.getString("submitButtonTitle"));
 
         PhotoCropCallback callback = new PhotoCropCallback() {
             @Override

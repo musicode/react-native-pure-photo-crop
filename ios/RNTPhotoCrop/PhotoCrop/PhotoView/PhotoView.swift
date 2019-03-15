@@ -10,6 +10,18 @@ import UIKit
 // 这样双击放大不会触发 layoutSubviews
 public class PhotoView: UIView {
     
+    public var bounceVertiical = true {
+        didSet {
+            scrollView.alwaysBounceVertical = bounceVertiical
+        }
+    }
+    
+    public var bounceHorizontal = true {
+        didSet {
+            scrollView.alwaysBounceHorizontal = bounceHorizontal
+        }
+    }
+    
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         

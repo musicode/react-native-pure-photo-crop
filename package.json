@@ -1,6 +1,6 @@
 {
   "name": "react-native-pure-photo-crop",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "react native photo crop",
   "main": "index.js",
   "scripts": {
@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/musicode/react-native-pure-photo-crop/issues"
   },
-  "homepage": "https://github.com/musicode/react-native-pure-photo-crop#readme",
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  }
+  "homepage": "https://github.com/musicode/react-native-pure-photo-crop#readme"
 }

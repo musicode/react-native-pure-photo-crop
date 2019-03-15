@@ -34,6 +34,39 @@ class Util {
         
     }
     
+    // https://stackoverflow.com/questions/36645060/rotate-uiimage-in-swift
+    func rotateImage(image: UIImage, degrees: CGFloat) -> UIImage {
+        
+        let size = image.size
+        let angle = degrees * CGFloat.pi / 180
+        
+        let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        view.transform = CGAffineTransform(rotationAngle: angle)
+        let newSize: CGSize = view.frame.size
+        
+        UIGraphicsBeginImageContext(newSize)
+        
+        guard let bitmap = UIGraphicsGetCurrentContext() else {
+            return image
+        }
+        
+        // 中心旋转
+        bitmap.translateBy(x: newSize.width / 2, y: newSize.height / 2)
+        bitmap.rotate(by: angle)
+        bitmap.scaleBy(x: 1.0, y: -1.0)
+        
+        bitmap.draw(
+            image.cgImage!,
+            in: CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height)
+        )
+        
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+        
+    }
+    
     func createNewImage(image: UIImage, size: CGSize, scale: CGFloat) -> UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, scale)

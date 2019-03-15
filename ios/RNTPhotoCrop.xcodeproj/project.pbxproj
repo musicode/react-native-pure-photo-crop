@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DDC516A223B8DBA00693F85 /* Compressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5157223B8DBA00693F85 /* Compressor.swift */; };
+		9DDC516B223B8DBA00693F85 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5158223B8DBA00693F85 /* Util.swift */; };
+		9DDC516C223B8DBA00693F85 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC515A223B8DBA00693F85 /* SimpleButton.swift */; };
+		9DDC516D223B8DBA00693F85 /* PhotoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC515B223B8DBA00693F85 /* PhotoCropViewController.swift */; };
+		9DDC516E223B8DBA00693F85 /* PhotoCropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC515C223B8DBA00693F85 /* PhotoCropDelegate.swift */; };
+		9DDC516F223B8DBA00693F85 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC515E223B8DBA00693F85 /* PhotoView.swift */; };
+		9DDC5170223B8DBA00693F85 /* PhotoCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC515F223B8DBA00693F85 /* PhotoCrop.swift */; };
+		9DDC5171223B8DBA00693F85 /* CropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5161223B8DBA00693F85 /* CropArea.swift */; };
+		9DDC5172223B8DBA00693F85 /* CropFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5162223B8DBA00693F85 /* CropFile.swift */; };
+		9DDC5173223B8DBA00693F85 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5164223B8DBA00693F85 /* OverlayView.swift */; };
+		9DDC5174223B8DBA00693F85 /* ForegroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5165223B8DBA00693F85 /* ForegroundView.swift */; };
+		9DDC5175223B8DBA00693F85 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5166223B8DBA00693F85 /* FinderView.swift */; };
+		9DDC5176223B8DBA00693F85 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5167223B8DBA00693F85 /* GridView.swift */; };
+		9DDC5177223B8DBA00693F85 /* PhotoCropConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5169223B8DBA00693F85 /* PhotoCropConfiguration.swift */; };
 		9DFE53A321FAAF5700E27DD9 /* RNTPhotoCropModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */; };
 		9DFE53A421FAAF5700E27DD9 /* RNTPhotoCropModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */; };
-		9DFE540121FAB07D00E27DD9 /* Compressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53EE21FAB07D00E27DD9 /* Compressor.swift */; };
-		9DFE540221FAB07D00E27DD9 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53EF21FAB07D00E27DD9 /* Util.swift */; };
-		9DFE540321FAB07D00E27DD9 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F121FAB07D00E27DD9 /* SimpleButton.swift */; };
-		9DFE540421FAB07D00E27DD9 /* PhotoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F221FAB07D00E27DD9 /* PhotoCropViewController.swift */; };
-		9DFE540521FAB07D00E27DD9 /* PhotoCropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F321FAB07D00E27DD9 /* PhotoCropDelegate.swift */; };
-		9DFE540621FAB07D00E27DD9 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F521FAB07D00E27DD9 /* PhotoView.swift */; };
-		9DFE540721FAB07D00E27DD9 /* PhotoCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F621FAB07D00E27DD9 /* PhotoCrop.swift */; };
-		9DFE540821FAB07D00E27DD9 /* CropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F821FAB07D00E27DD9 /* CropArea.swift */; };
-		9DFE540921FAB07D00E27DD9 /* CropFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53F921FAB07D00E27DD9 /* CropFile.swift */; };
-		9DFE540A21FAB07D00E27DD9 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FB21FAB07D00E27DD9 /* OverlayView.swift */; };
-		9DFE540B21FAB07D00E27DD9 /* ForegroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FC21FAB07D00E27DD9 /* ForegroundView.swift */; };
-		9DFE540C21FAB07D00E27DD9 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FD21FAB07D00E27DD9 /* FinderView.swift */; };
-		9DFE540D21FAB07D00E27DD9 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53FE21FAB07D00E27DD9 /* GridView.swift */; };
-		9DFE540E21FAB07D00E27DD9 /* PhotoCropConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE540021FAB07D00E27DD9 /* PhotoCropConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,23 +39,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9DDC5157223B8DBA00693F85 /* Compressor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compressor.swift; sourceTree = "<group>"; };
+		9DDC5158223B8DBA00693F85 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		9DDC515A223B8DBA00693F85 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
+		9DDC515B223B8DBA00693F85 /* PhotoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropViewController.swift; sourceTree = "<group>"; };
+		9DDC515C223B8DBA00693F85 /* PhotoCropDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropDelegate.swift; sourceTree = "<group>"; };
+		9DDC515E223B8DBA00693F85 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		9DDC515F223B8DBA00693F85 /* PhotoCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCrop.swift; sourceTree = "<group>"; };
+		9DDC5161223B8DBA00693F85 /* CropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropArea.swift; sourceTree = "<group>"; };
+		9DDC5162223B8DBA00693F85 /* CropFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropFile.swift; sourceTree = "<group>"; };
+		9DDC5164223B8DBA00693F85 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		9DDC5165223B8DBA00693F85 /* ForegroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundView.swift; sourceTree = "<group>"; };
+		9DDC5166223B8DBA00693F85 /* FinderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
+		9DDC5167223B8DBA00693F85 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		9DDC5169223B8DBA00693F85 /* PhotoCropConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropConfiguration.swift; sourceTree = "<group>"; };
+		9DDC5178223B8E8800693F85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DFE539E21FAAF5700E27DD9 /* libRNTPhotoCrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNTPhotoCrop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTPhotoCropModule.h; sourceTree = "<group>"; };
 		9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTPhotoCropModule.m; sourceTree = "<group>"; };
-		9DFE53EE21FAB07D00E27DD9 /* Compressor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compressor.swift; sourceTree = "<group>"; };
-		9DFE53EF21FAB07D00E27DD9 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		9DFE53F121FAB07D00E27DD9 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
-		9DFE53F221FAB07D00E27DD9 /* PhotoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropViewController.swift; sourceTree = "<group>"; };
-		9DFE53F321FAB07D00E27DD9 /* PhotoCropDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropDelegate.swift; sourceTree = "<group>"; };
-		9DFE53F521FAB07D00E27DD9 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
-		9DFE53F621FAB07D00E27DD9 /* PhotoCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCrop.swift; sourceTree = "<group>"; };
-		9DFE53F821FAB07D00E27DD9 /* CropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropArea.swift; sourceTree = "<group>"; };
-		9DFE53F921FAB07D00E27DD9 /* CropFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropFile.swift; sourceTree = "<group>"; };
-		9DFE53FB21FAB07D00E27DD9 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
-		9DFE53FC21FAB07D00E27DD9 /* ForegroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundView.swift; sourceTree = "<group>"; };
-		9DFE53FD21FAB07D00E27DD9 /* FinderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
-		9DFE53FE21FAB07D00E27DD9 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		9DFE540021FAB07D00E27DD9 /* PhotoCropConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropConfiguration.swift; sourceTree = "<group>"; };
 		9DFE541221FAB61100E27DD9 /* RNTPhotoCrop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNTPhotoCrop-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +71,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DDC5155223B8DBA00693F85 /* PhotoCrop */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC5156223B8DBA00693F85 /* util */,
+				9DDC5159223B8DBA00693F85 /* SimpleButton */,
+				9DDC515B223B8DBA00693F85 /* PhotoCropViewController.swift */,
+				9DDC515C223B8DBA00693F85 /* PhotoCropDelegate.swift */,
+				9DDC515D223B8DBA00693F85 /* PhotoView */,
+				9DDC515F223B8DBA00693F85 /* PhotoCrop.swift */,
+				9DDC5160223B8DBA00693F85 /* model */,
+				9DDC5163223B8DBA00693F85 /* view */,
+				9DDC5169223B8DBA00693F85 /* PhotoCropConfiguration.swift */,
+			);
+			path = PhotoCrop;
+			sourceTree = "<group>";
+		};
+		9DDC5156223B8DBA00693F85 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC5157223B8DBA00693F85 /* Compressor.swift */,
+				9DDC5158223B8DBA00693F85 /* Util.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		9DDC5159223B8DBA00693F85 /* SimpleButton */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC515A223B8DBA00693F85 /* SimpleButton.swift */,
+			);
+			path = SimpleButton;
+			sourceTree = "<group>";
+		};
+		9DDC515D223B8DBA00693F85 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC515E223B8DBA00693F85 /* PhotoView.swift */,
+			);
+			path = PhotoView;
+			sourceTree = "<group>";
+		};
+		9DDC5160223B8DBA00693F85 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC5161223B8DBA00693F85 /* CropArea.swift */,
+				9DDC5162223B8DBA00693F85 /* CropFile.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9DDC5163223B8DBA00693F85 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC5164223B8DBA00693F85 /* OverlayView.swift */,
+				9DDC5165223B8DBA00693F85 /* ForegroundView.swift */,
+				9DDC5166223B8DBA00693F85 /* FinderView.swift */,
+				9DDC5167223B8DBA00693F85 /* GridView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		9DFE539521FAAF5700E27DD9 = {
 			isa = PBXGroup;
 			children = (
@@ -89,73 +151,13 @@
 		9DFE53A021FAAF5700E27DD9 /* RNTPhotoCrop */ = {
 			isa = PBXGroup;
 			children = (
-				9DFE53EC21FAB07D00E27DD9 /* PhotoCrop */,
+				9DDC5155223B8DBA00693F85 /* PhotoCrop */,
 				9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */,
 				9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */,
 				9DFE541221FAB61100E27DD9 /* RNTPhotoCrop-Bridging-Header.h */,
+				9DDC5178223B8E8800693F85 /* Assets.xcassets */,
 			);
 			path = RNTPhotoCrop;
-			sourceTree = "<group>";
-		};
-		9DFE53EC21FAB07D00E27DD9 /* PhotoCrop */ = {
-			isa = PBXGroup;
-			children = (
-				9DFE53ED21FAB07D00E27DD9 /* util */,
-				9DFE53F021FAB07D00E27DD9 /* SimpleButton */,
-				9DFE53F221FAB07D00E27DD9 /* PhotoCropViewController.swift */,
-				9DFE53F321FAB07D00E27DD9 /* PhotoCropDelegate.swift */,
-				9DFE53F421FAB07D00E27DD9 /* PhotoView */,
-				9DFE53F621FAB07D00E27DD9 /* PhotoCrop.swift */,
-				9DFE53F721FAB07D00E27DD9 /* model */,
-				9DFE53FA21FAB07D00E27DD9 /* view */,
-				9DFE540021FAB07D00E27DD9 /* PhotoCropConfiguration.swift */,
-			);
-			path = PhotoCrop;
-			sourceTree = "<group>";
-		};
-		9DFE53ED21FAB07D00E27DD9 /* util */ = {
-			isa = PBXGroup;
-			children = (
-				9DFE53EE21FAB07D00E27DD9 /* Compressor.swift */,
-				9DFE53EF21FAB07D00E27DD9 /* Util.swift */,
-			);
-			path = util;
-			sourceTree = "<group>";
-		};
-		9DFE53F021FAB07D00E27DD9 /* SimpleButton */ = {
-			isa = PBXGroup;
-			children = (
-				9DFE53F121FAB07D00E27DD9 /* SimpleButton.swift */,
-			);
-			path = SimpleButton;
-			sourceTree = "<group>";
-		};
-		9DFE53F421FAB07D00E27DD9 /* PhotoView */ = {
-			isa = PBXGroup;
-			children = (
-				9DFE53F521FAB07D00E27DD9 /* PhotoView.swift */,
-			);
-			path = PhotoView;
-			sourceTree = "<group>";
-		};
-		9DFE53F721FAB07D00E27DD9 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				9DFE53F821FAB07D00E27DD9 /* CropArea.swift */,
-				9DFE53F921FAB07D00E27DD9 /* CropFile.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		9DFE53FA21FAB07D00E27DD9 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				9DFE53FB21FAB07D00E27DD9 /* OverlayView.swift */,
-				9DFE53FC21FAB07D00E27DD9 /* ForegroundView.swift */,
-				9DFE53FD21FAB07D00E27DD9 /* FinderView.swift */,
-				9DFE53FE21FAB07D00E27DD9 /* GridView.swift */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,21 +216,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFE540E21FAB07D00E27DD9 /* PhotoCropConfiguration.swift in Sources */,
-				9DFE540721FAB07D00E27DD9 /* PhotoCrop.swift in Sources */,
-				9DFE540921FAB07D00E27DD9 /* CropFile.swift in Sources */,
-				9DFE540121FAB07D00E27DD9 /* Compressor.swift in Sources */,
-				9DFE540521FAB07D00E27DD9 /* PhotoCropDelegate.swift in Sources */,
-				9DFE540A21FAB07D00E27DD9 /* OverlayView.swift in Sources */,
-				9DFE540C21FAB07D00E27DD9 /* FinderView.swift in Sources */,
-				9DFE540621FAB07D00E27DD9 /* PhotoView.swift in Sources */,
-				9DFE540221FAB07D00E27DD9 /* Util.swift in Sources */,
+				9DDC5177223B8DBA00693F85 /* PhotoCropConfiguration.swift in Sources */,
+				9DDC5170223B8DBA00693F85 /* PhotoCrop.swift in Sources */,
+				9DDC5172223B8DBA00693F85 /* CropFile.swift in Sources */,
+				9DDC516A223B8DBA00693F85 /* Compressor.swift in Sources */,
+				9DDC516E223B8DBA00693F85 /* PhotoCropDelegate.swift in Sources */,
+				9DDC5173223B8DBA00693F85 /* OverlayView.swift in Sources */,
+				9DDC5175223B8DBA00693F85 /* FinderView.swift in Sources */,
+				9DDC516F223B8DBA00693F85 /* PhotoView.swift in Sources */,
+				9DDC516B223B8DBA00693F85 /* Util.swift in Sources */,
 				9DFE53A321FAAF5700E27DD9 /* RNTPhotoCropModule.m in Sources */,
-				9DFE540821FAB07D00E27DD9 /* CropArea.swift in Sources */,
-				9DFE540D21FAB07D00E27DD9 /* GridView.swift in Sources */,
-				9DFE540B21FAB07D00E27DD9 /* ForegroundView.swift in Sources */,
-				9DFE540321FAB07D00E27DD9 /* SimpleButton.swift in Sources */,
-				9DFE540421FAB07D00E27DD9 /* PhotoCropViewController.swift in Sources */,
+				9DDC5171223B8DBA00693F85 /* CropArea.swift in Sources */,
+				9DDC5176223B8DBA00693F85 /* GridView.swift in Sources */,
+				9DDC5174223B8DBA00693F85 /* ForegroundView.swift in Sources */,
+				9DDC516C223B8DBA00693F85 /* SimpleButton.swift in Sources */,
+				9DDC516D223B8DBA00693F85 /* PhotoCropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

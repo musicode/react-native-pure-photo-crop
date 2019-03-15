@@ -27,6 +27,29 @@ import UIKit
     @objc public var overlayAlphaNormal: CGFloat = 1
     @objc public var overlayAlphaInteractive: CGFloat = 0.2
     
+    @objc public var separatorLineWidth = 1 / UIScreen.main.scale
+    @objc public var separatorLineColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+    @objc public var separatorLineSpacingTop: CGFloat = 10
+    @objc public var separatorLineSpacingBottom: CGFloat = 5
+    @objc public var separatorLineMarginBottom: CGFloat = 60
+    
+    @objc public var cancelButtonMarginLeft: CGFloat = 20
+    @objc public var submitButtonMarginRight: CGFloat = 20
+    @objc public var rotateButtonMarginLeft: CGFloat = 20
+    @objc public var rotateButtonImage = UIImage(named: "photo_crop_rotate")
+    
+    @objc public var cancelButtonTitle = "取消"
+    @objc public var resetButtonTitle = "重置"
+    @objc public var submitButtonTitle = "确定"
+    
+    @objc public var buttonTextFont = UIFont.systemFont(ofSize: 15)
+    @objc public var buttonTextColor = UIColor.white
+    @objc public var buttonWidth: CGFloat = 44
+    @objc public var buttonHeight: CGFloat = 44
+    
+    
+    
+    
     // 裁剪宽度
     @objc public var cropWidth: CGFloat = 0
     

@@ -13,6 +13,9 @@ public class PhotoCrop: UIView {
         }
     }
     
+    public var onInteractionStart: (() -> Void)?
+    public var onInteractionEnd: (() -> Void)?
+    
     // 图片容器，可缩放
     private lazy var photoView: PhotoView = {
        
@@ -78,9 +81,11 @@ public class PhotoCrop: UIView {
         }
         view.onInteractionStart = {
             self.updateInteractionState(overlayAlpha: self.configuration.overlayAlphaInteractive, gridAlpha: 1)
+            self.onInteractionStart?()
         }
         view.onInteractionEnd = {
             self.updateInteractionState(overlayAlpha: self.configuration.overlayAlphaNormal, gridAlpha: 0)
+            self.onInteractionEnd?()
         }
         
         return view
@@ -108,14 +113,6 @@ public class PhotoCrop: UIView {
         return view
         
     }()
-    
-    private var angle: Double = 0
-    
-    private var isReversed: Bool {
-        get {
-            return angle.truncatingRemainder(dividingBy: Double.pi) != 0
-        }
-    }
     
     private var isAnimating = false
     
@@ -204,26 +201,19 @@ public class PhotoCrop: UIView {
 
     }
 
-    public func rotate() {
+    public func rotate(degrees: CGFloat) {
         
-        let offset = Double.pi / 2
-        
-        angle += offset
-        
-        if angle.truncatingRemainder(dividingBy: 2 * Double.pi) == 0 {
-            angle = 0
+        guard let bitmap = image else {
+            return
         }
-
-        startAnimation(duration: 0.5, animations: {
-            self.transform = self.transform.rotated(by: CGFloat(offset))
-        })
+        
+        image = Util.shared.rotateImage(image: bitmap, degrees: degrees)
         
     }
     
     public func reset() {
         
         startAnimation(duration: 0.5, animations: {
-            self.transform = CGAffineTransform.identity
             self.photoView.reset()
         })
         
