@@ -1,6 +1,6 @@
 {
   "name": "react-native-pure-photo-crop",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "react native photo crop",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "photo crop"
   ],
   "author": "musicode",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/musicode/react-native-pure-photo-crop/issues"
   },

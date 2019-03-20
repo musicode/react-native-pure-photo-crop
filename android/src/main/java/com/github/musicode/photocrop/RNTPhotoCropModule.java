@@ -18,6 +18,10 @@ import com.github.herokotlin.photocrop.PhotoCropConfiguration;
 import com.github.herokotlin.photocrop.model.CropFile;
 import com.github.herokotlin.photocrop.util.Compressor;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
+
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function3;
@@ -46,11 +50,19 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
         PhotoCropConfiguration configuration = new PhotoCropConfiguration() {};
         configuration.setCropWidth(options.getInt("width"));
         configuration.setCropHeight(options.getInt("height"));
-        configuration.setCancelButtonTitle(options.getString("cancelButtonTitle"));
-        configuration.setResetButtonTitle(options.getString("resetButtonTitle"));
-        configuration.setSubmitButtonTitle(options.getString("submitButtonTitle"));
+
+        if (options.hasKey("cancelButtonTitle")) {
+            configuration.setCancelButtonTitle(options.getString("cancelButtonTitle"));
+        }
+        if (options.hasKey("resetButtonTitle")) {
+            configuration.setResetButtonTitle(options.getString("resetButtonTitle"));
+        }
+        if (options.hasKey("submitButtonTitle")) {
+            configuration.setSubmitButtonTitle(options.getString("submitButtonTitle"));
+        }
 
         PhotoCropCallback callback = new PhotoCropCallback() {
+
             @Override
             public void onCancel(Activity activity) {
                 activity.finish();
@@ -69,6 +81,30 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
 
                 promise.resolve(map);
             }
+
+            @Override
+            public void onExternalStorageNotWritable(@NotNull Activity activity) {
+                activity.finish();
+                promise.reject("1", "external storage is not writable");
+            }
+
+            @Override
+            public void onPermissionsNotGranted(@NotNull Activity activity) {
+                activity.finish();
+                promise.reject("2", "has no permissions");
+            }
+
+            @Override
+            public void onPermissionsDenied(@NotNull Activity activity) {
+                activity.finish();
+                promise.reject("3", "you denied the requested permissions.");
+            }
+
+            @Override
+            public void onPermissionsGranted(@NotNull Activity activity) {
+
+            }
+
         };
 
         PhotoCropActivity.Companion.setConfiguration(configuration);
@@ -95,7 +131,13 @@ public class RNTPhotoCropModule extends ReactContextBaseJavaModule {
             (float)options.getDouble("quality")
         );
 
-        final String imageDir = reactContext.getExternalCacheDir().getAbsolutePath();
+        File cacheDir = reactContext.getExternalCacheDir();
+        if (cacheDir == null) {
+            promise.reject("1", "getExternalCacheDir() is null.");
+            return;
+        }
+
+        final String imageDir = cacheDir.getAbsolutePath();
 
         final Handler handler = new Handler(Looper.getMainLooper());
 

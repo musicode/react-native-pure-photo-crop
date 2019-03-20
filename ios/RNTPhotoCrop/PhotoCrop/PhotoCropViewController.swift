@@ -134,14 +134,17 @@ public class PhotoCropViewController: UIViewController {
 
             NSLayoutConstraint(item: cancelButton, attribute: .top, relatedBy: .equal, toItem: separatorView, attribute: .bottom, multiplier: 1, constant: configuration.separatorLineSpacingBottom),
             NSLayoutConstraint(item: cancelButton, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: configuration.cancelButtonMarginLeft),
+            NSLayoutConstraint(item: cancelButton, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .width, multiplier: 1, constant: configuration.buttonWidth),
             NSLayoutConstraint(item: cancelButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: configuration.buttonHeight),
             
             NSLayoutConstraint(item: resetButton, attribute: .top, relatedBy: .equal, toItem: separatorView, attribute: .bottom, multiplier: 1, constant: configuration.separatorLineSpacingBottom),
             NSLayoutConstraint(item: resetButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: resetButton, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .width, multiplier: 1, constant: configuration.buttonWidth),
             NSLayoutConstraint(item: resetButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: configuration.buttonHeight),
             
             NSLayoutConstraint(item: submitButton, attribute: .top, relatedBy: .equal, toItem: separatorView, attribute: .bottom, multiplier: 1, constant: configuration.separatorLineSpacingBottom),
             NSLayoutConstraint(item: submitButton, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -configuration.submitButtonMarginRight),
+            NSLayoutConstraint(item: submitButton, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .width, multiplier: 1, constant: configuration.buttonWidth),
             NSLayoutConstraint(item: submitButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: configuration.buttonHeight),
 
             NSLayoutConstraint(item: rotateButton, attribute: .bottom, relatedBy: .equal, toItem: separatorView, attribute: .top, multiplier: 1, constant: -configuration.separatorLineSpacingTop),

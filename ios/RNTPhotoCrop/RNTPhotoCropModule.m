@@ -41,9 +41,19 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options
     PhotoCropConfiguration *configuration = [PhotoCropConfiguration new];
     configuration.cropWidth = [RCTConvert int:options[@"width"]];
     configuration.cropHeight = [RCTConvert int:options[@"height"]];
-    configuration.cancelButtonTitle = [RCTConvert NSString:options[@"cancelButtonTitle"]];
-    configuration.resetButtonTitle = [RCTConvert NSString:options[@"resetButtonTitle"]];
-    configuration.submitButtonTitle = [RCTConvert NSString:options[@"submitButtonTitle"]];
+    
+    NSString *cancelButtonTitle = [RCTConvert NSString:options[@"cancelButtonTitle"]];
+    if (cancelButtonTitle != nil) {
+        configuration.cancelButtonTitle = cancelButtonTitle;
+    }
+    NSString *resetButtonTitle = [RCTConvert NSString:options[@"resetButtonTitle"]];
+    if (resetButtonTitle != nil) {
+        configuration.resetButtonTitle = resetButtonTitle;
+    }
+    NSString *submitButtonTitle = [RCTConvert NSString:options[@"submitButtonTitle"]];
+    if (submitButtonTitle != nil) {
+        configuration.submitButtonTitle = submitButtonTitle;
+    }
     
     controller.delegate = self;
     controller.configuration = configuration;
