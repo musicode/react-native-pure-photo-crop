@@ -96,9 +96,9 @@ PhotoCrop.open({
 .catch(error => {
   let { code } = error
   // -1: click cancel button
-  // 1: external storage is not writable
-  // 2: has no permissions
-  // 3: denied the requested permissions
+  // 1: has no permissions
+  // 2: denied the requested permissions
+  // 3: external storage is not writable
 })
 
 // compress an image without ui
@@ -123,5 +123,6 @@ PhotoCrop.compress({
 })
 .catch(error => {
   let { code } = error
+
 })
 ```
