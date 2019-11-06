@@ -31,9 +31,7 @@ public class PhotoCropViewController: UIViewController {
         self.modalPresentationStyle = .custom
         self.modalTransitionStyle = .crossDissolve
         
-        DispatchQueue.main.async {
-            UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
-        }
+        UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
         
     }
     

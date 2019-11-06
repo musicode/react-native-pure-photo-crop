@@ -26,7 +26,12 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
         <Text style={styles.welcome}
           onPress={() => {
-            RNTPhotoCrop.open('https://img.zcool.cn/community/0178075b6ab12fa801215c8f212524.jpeg', 100, 100).then(data => {
+            RNTPhotoCrop.open({
+              url: 'https://img.zcool.cn/community/0178075b6ab12fa801215c8f212524.jpeg',
+              width: 100,
+              height: 100,
+            })
+            .then(data => {
               console.log(data)
             })
           }}>
