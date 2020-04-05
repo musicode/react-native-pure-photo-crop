@@ -14,7 +14,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.modules.core.PermissionAwareActivity
-import com.github.herokotlin.photocrop.PhotoCrop
+import com.github.herokotlin.permission.Permission
 import com.github.herokotlin.photocrop.PhotoCropActivity
 import com.github.herokotlin.photocrop.PhotoCropCallback
 import com.github.herokotlin.photocrop.PhotoCropConfiguration
@@ -23,13 +23,23 @@ import com.github.herokotlin.photocrop.util.Compressor
 
 class RNTPhotoCropModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
+    companion object {
+
+        private val permission = Permission(19901, listOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE))
+
+        fun setImageLoader(loader: (Context, String, (Bitmap?) -> Unit) -> Unit) {
+            PhotoCropActivity.loadImage = loader
+        }
+
+    }
+
     override fun getName(): String {
         return "RNTPhotoCrop"
     }
 
     private var permissionListener = { requestCode: Int, permissions: Array<out String>?, grantResults: IntArray? ->
         if (permissions != null && grantResults != null) {
-            PhotoCrop.permission.onRequestPermissionsResult(requestCode, permissions, grantResults)
+            permission.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
         true
     }
@@ -37,16 +47,19 @@ class RNTPhotoCropModule(private val reactContext: ReactApplicationContext) : Re
     @ReactMethod
     fun open(options: ReadableMap, promise: Promise) {
 
-        PhotoCrop.permission.onPermissionsDenied = {
+        permission.onExternalStorageNotWritable = {
+            promise.reject("3", "external storage is not writable.")
+        }
+
+        permission.onPermissionsDenied = {
             promise.reject("2", "you denied the requested permissions.")
         }
-        PhotoCrop.permission.onPermissionsNotGranted = {
-            promise.reject("1", "has no permissions")
+
+        permission.onPermissionsNotGranted = {
+            promise.reject("1", "has no permissions.")
         }
-        PhotoCrop.permission.onExternalStorageNotWritable = {
-            promise.reject("3", "external storage is not writable")
-        }
-        PhotoCrop.permission.onRequestPermissions = { activity, list, requestCode ->
+
+        permission.onRequestPermissions = { activity, list, requestCode ->
             if (activity is ReactActivity) {
                 activity.requestPermissions(list, requestCode, permissionListener)
             }
@@ -55,8 +68,8 @@ class RNTPhotoCropModule(private val reactContext: ReactApplicationContext) : Re
             }
         }
 
-        if (PhotoCrop.permission.checkExternalStorageWritable()) {
-            PhotoCrop.permission.requestPermissions(currentActivity!!) {
+        if (permission.checkExternalStorageWritable()) {
+            permission.requestPermissions(currentActivity!!) {
                 openActivity(options, promise)
             }
         }
@@ -147,12 +160,6 @@ class RNTPhotoCropModule(private val reactContext: ReactApplicationContext) : Re
             handler.post { promise.resolve(map) }
         }).start()
 
-    }
-
-    companion object {
-        fun setImageLoader(loader: (Context, String, (Bitmap?) -> Unit) -> Unit) {
-            PhotoCropActivity.loadImage = loader
-        }
     }
 
 }
