@@ -17,11 +17,11 @@ react-native link react-native-pure-photo-crop
 Modify `AppDelegate.m`
 
 ```
-#import <RNTPhotoCropModule.h>
+#import <RNTPhotoCrop.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-  [RNTPhotoCropModule init:^(NSString *url, void (^ onComplete)(UIImage *)) {
+  [RNTPhotoCrop init:^(NSString *url, void (^ onComplete)(UIImage *)) {
     // add your image loader here
   }];
 
