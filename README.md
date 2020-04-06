@@ -21,7 +21,7 @@ Modify `AppDelegate.m`
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-  [RNTPhotoCropModule setImageLoader:^(NSString *url, void (^ onComplete)(UIImage *)) {
+  [RNTPhotoCropModule init:^(NSString *url, void (^ onComplete)(UIImage *)) {
     // add your image loader here
   }];
 
@@ -42,33 +42,22 @@ allprojects {
 }
 ```
 
-Modify `MainApplication.java`
+Modify `MainApplication`
 
-```java
+```kotlin
+class MainApplication : Application(), ReactApplication {
 
-import com.github.musicode.photocrop.RNTPhotoCropModule;
+  override fun onCreate() {
+    super.onCreate()
 
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function3;
+    RNTPhotoCropModule.init { context, url, onComplete ->
 
-public class MainApplication extends Application implements ReactApplication {
+        // load image by url
+        // onComplete.invoke(null): load error
+        // onComplete.invoke(bitmap): load success
 
-  @Override
-  public void onCreate() {
-    super.onCreate();
+    }
 
-    RNTPhotoCropModule.setImageLoader(
-      new Function3<Context, String, Function1, Unit>() {
-        @Override
-        public Unit invoke(Context context, String url, Function1 onComplete) {
-
-          // add your image loader here
-
-          return null;
-        }
-      }
-    );
   }
 
 }
@@ -77,9 +66,15 @@ public class MainApplication extends Application implements ReactApplication {
 ## Usage
 
 ```js
-import PhotoCrop from 'react-native-pure-photo-crop'
+import photoCrop from 'react-native-pure-photo-crop'
 
-PhotoCrop.open({
+// At first, make sure you have the permissions.
+// ios: nothing
+// android: WRITE_EXTERNAL_STORAGE
+
+// If you don't have these permissions, you can't call open method.
+
+photoCrop.open({
   url: 'image url or file path',
   width: 300,
   height: 200,
@@ -95,15 +90,11 @@ PhotoCrop.open({
 
 })
 .catch(error => {
-  let { code } = error
-  // -1: click cancel button
-  // 1: has no permissions
-  // 2: denied the requested permissions
-  // 3: external storage is not writable
+  // click cancel button
 })
 
 // compress an image without ui
-PhotoCrop.compress({
+photoCrop.compress({
   // image orignal info
   path: '/User/xx/xx.jpg',
   size: 10000,

@@ -21,8 +21,8 @@
 		9DDC5175223B8DBA00693F85 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5166223B8DBA00693F85 /* FinderView.swift */; };
 		9DDC5176223B8DBA00693F85 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5167223B8DBA00693F85 /* GridView.swift */; };
 		9DDC5177223B8DBA00693F85 /* PhotoCropConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC5169223B8DBA00693F85 /* PhotoCropConfiguration.swift */; };
-		9DFE53A321FAAF5700E27DD9 /* RNTPhotoCropModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */; };
-		9DFE53A421FAAF5700E27DD9 /* RNTPhotoCropModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */; };
+		9DFE53A321FAAF5700E27DD9 /* RNTPhotoCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE53A221FAAF5700E27DD9 /* RNTPhotoCrop.m */; };
+		9DFE53A421FAAF5700E27DD9 /* RNTPhotoCrop.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DFE53A121FAAF5700E27DD9 /* RNTPhotoCrop.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +32,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				9DFE53A421FAAF5700E27DD9 /* RNTPhotoCropModule.h in CopyFiles */,
+				9DFE53A421FAAF5700E27DD9 /* RNTPhotoCrop.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,9 +55,8 @@
 		9DDC5169223B8DBA00693F85 /* PhotoCropConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropConfiguration.swift; sourceTree = "<group>"; };
 		9DDC5178223B8E8800693F85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DFE539E21FAAF5700E27DD9 /* libRNTPhotoCrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNTPhotoCrop.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTPhotoCropModule.h; sourceTree = "<group>"; };
-		9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTPhotoCropModule.m; sourceTree = "<group>"; };
-		9DFE541221FAB61100E27DD9 /* RNTPhotoCrop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNTPhotoCrop-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DFE53A121FAAF5700E27DD9 /* RNTPhotoCrop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTPhotoCrop.h; sourceTree = "<group>"; };
+		9DFE53A221FAAF5700E27DD9 /* RNTPhotoCrop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTPhotoCrop.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				9DDC5155223B8DBA00693F85 /* PhotoCrop */,
-				9DFE53A121FAAF5700E27DD9 /* RNTPhotoCropModule.h */,
-				9DFE53A221FAAF5700E27DD9 /* RNTPhotoCropModule.m */,
-				9DFE541221FAB61100E27DD9 /* RNTPhotoCrop-Bridging-Header.h */,
+				9DFE53A121FAAF5700E27DD9 /* RNTPhotoCrop.h */,
+				9DFE53A221FAAF5700E27DD9 /* RNTPhotoCrop.m */,
 				9DDC5178223B8E8800693F85 /* Assets.xcassets */,
 			);
 			path = RNTPhotoCrop;
@@ -225,7 +223,7 @@
 				9DDC5175223B8DBA00693F85 /* FinderView.swift in Sources */,
 				9DDC516F223B8DBA00693F85 /* PhotoView.swift in Sources */,
 				9DDC516B223B8DBA00693F85 /* Util.swift in Sources */,
-				9DFE53A321FAAF5700E27DD9 /* RNTPhotoCropModule.m in Sources */,
+				9DFE53A321FAAF5700E27DD9 /* RNTPhotoCrop.m in Sources */,
 				9DDC5171223B8DBA00693F85 /* CropArea.swift in Sources */,
 				9DDC5176223B8DBA00693F85 /* GridView.swift in Sources */,
 				9DDC5174223B8DBA00693F85 /* ForegroundView.swift in Sources */,

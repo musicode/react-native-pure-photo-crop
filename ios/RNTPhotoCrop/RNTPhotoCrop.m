@@ -1,14 +1,15 @@
 
-#import "RNTPhotoCropModule.h"
+#import "RNTPhotoCrop.h"
+#import <React/RCTConvert.h>
 #import "react_native_pure_photo_crop-Swift.h"
 
-@interface RNTPhotoCropModule()<PhotoCropDelegate>
+@interface RNTPhotoCrop()<PhotoCropDelegate>
 
 @end
 
-@implementation RNTPhotoCropModule
+@implementation RNTPhotoCrop
 
-+ (void)setImageLoader:(void (^)(NSString *, void (^ _Null_unspecified)(UIImage *)))value {
++ (void)init:(void (^)(NSString *, void (^ _Null_unspecified)(UIImage *)))value {
     PhotoCropViewController.loadImage = value;
 }
 
@@ -27,6 +28,10 @@
                    });
 }
 
+- (dispatch_queue_t)methodQueue {
+  return dispatch_get_main_queue();
+}
+
 RCT_EXPORT_MODULE(RNTPhotoCrop);
 
 RCT_EXPORT_METHOD(open:(NSDictionary*)options
@@ -36,33 +41,29 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options
     self.resolve = resolve;
     self.reject = reject;
 
-    dispatch_async(dispatch_get_main_queue(), ^{
+    PhotoCropViewController *controller = [PhotoCropViewController new];
 
-        PhotoCropViewController *controller = [PhotoCropViewController new];
+    PhotoCropConfiguration *configuration = [PhotoCropConfiguration new];
+    configuration.cropWidth = [RCTConvert int:options[@"width"]];
+    configuration.cropHeight = [RCTConvert int:options[@"height"]];
 
-        PhotoCropConfiguration *configuration = [PhotoCropConfiguration new];
-        configuration.cropWidth = [RCTConvert int:options[@"width"]];
-        configuration.cropHeight = [RCTConvert int:options[@"height"]];
+    NSString *cancelButtonTitle = [RCTConvert NSString:options[@"cancelButtonTitle"]];
+    if (cancelButtonTitle != nil) {
+        configuration.cancelButtonTitle = cancelButtonTitle;
+    }
+    NSString *resetButtonTitle = [RCTConvert NSString:options[@"resetButtonTitle"]];
+    if (resetButtonTitle != nil) {
+        configuration.resetButtonTitle = resetButtonTitle;
+    }
+    NSString *submitButtonTitle = [RCTConvert NSString:options[@"submitButtonTitle"]];
+    if (submitButtonTitle != nil) {
+        configuration.submitButtonTitle = submitButtonTitle;
+    }
 
-        NSString *cancelButtonTitle = [RCTConvert NSString:options[@"cancelButtonTitle"]];
-        if (cancelButtonTitle != nil) {
-            configuration.cancelButtonTitle = cancelButtonTitle;
-        }
-        NSString *resetButtonTitle = [RCTConvert NSString:options[@"resetButtonTitle"]];
-        if (resetButtonTitle != nil) {
-            configuration.resetButtonTitle = resetButtonTitle;
-        }
-        NSString *submitButtonTitle = [RCTConvert NSString:options[@"submitButtonTitle"]];
-        if (submitButtonTitle != nil) {
-            configuration.submitButtonTitle = submitButtonTitle;
-        }
+    controller.delegate = self;
+    controller.configuration = configuration;
 
-        controller.delegate = self;
-        controller.configuration = configuration;
-
-        [controller showWithUrl:[RCTConvert NSString:options[@"url"]]];
-
-    });
+    [controller showWithUrl:[RCTConvert NSString:options[@"url"]]];
 
 }
 
@@ -97,10 +98,7 @@ RCT_EXPORT_METHOD(compress:(NSDictionary*)options
                       });
         });
 
-
     });
-
-
 
 }
 
