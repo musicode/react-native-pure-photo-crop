@@ -95,7 +95,8 @@ public class PhotoCropViewController: UIViewController {
                 return
             }
             DispatchQueue.global(qos: .default).async {
-                guard let file = self.photoCrop.save(image: image) else {
+                let extname = Util.shared.getImageExtname(path: self.url)
+                guard let file = self.photoCrop.save(image: image, extname: extname) else {
                     return
                 }
                 let result = self.photoCrop.compress(source: file)

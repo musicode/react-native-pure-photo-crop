@@ -39,7 +39,9 @@ import UIKit
             return source
         }
         
-        let lowQuality = Util.shared.createNewFile(image: image, quality: quality) ?? source
+        let extname = Util.shared.getImageExtname(path: source.path)
+        
+        let lowQuality = Util.shared.createNewFile(image: image, quality: quality, extname: extname) ?? source
         if lowQuality.size < maxSize {
             return lowQuality
         }
@@ -94,11 +96,12 @@ import UIKit
     
     private func compress(image: UIImage, source: CropFile, width: CGFloat, height: CGFloat) -> CropFile {
         
+        let extname = Util.shared.getImageExtname(path: source.path)
         let scaledImage = Util.shared.createNewImage(image: image, size: CGSize(width: width, height: height), scale: 1)
         
-        var result = Util.shared.createNewFile(image: scaledImage, quality: 1)
+        var result = Util.shared.createNewFile(image: scaledImage, quality: 1, extname: extname)
         if let file = result, file.size > maxSize {
-            result = Util.shared.createNewFile(image: scaledImage, quality: quality)
+            result = Util.shared.createNewFile(image: scaledImage, quality: quality, extname: extname)
         }
         
         return result ?? source

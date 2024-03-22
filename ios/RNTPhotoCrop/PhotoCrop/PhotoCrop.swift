@@ -270,9 +270,9 @@ public class PhotoCrop: UIView {
     }
     
     // 裁剪出来的是最高清的图，这里保存的也是高清图
-    public func save(image: UIImage) -> CropFile? {
+    public func save(image: UIImage, extname: String) -> CropFile? {
         
-        return Util.shared.createNewFile(image: image, quality: 1)
+        return Util.shared.createNewFile(image: image, quality: 1, extname: extname)
         
     }
     
