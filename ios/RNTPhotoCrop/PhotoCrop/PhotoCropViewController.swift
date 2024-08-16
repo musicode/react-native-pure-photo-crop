@@ -18,7 +18,11 @@ public class PhotoCropViewController: UIViewController {
     
     private var url: String!
 
+    private var topLayoutConstraint: NSLayoutConstraint?
     private var bottomLayoutConstraint: NSLayoutConstraint!
+    
+    private var isSubmitClicked = false
+    private var isCancelClicked = false
     
     public override var prefersStatusBarHidden: Bool {
         return true
@@ -32,6 +36,16 @@ public class PhotoCropViewController: UIViewController {
         self.modalTransitionStyle = .crossDissolve
         
         UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
+        
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        if (!isSubmitClicked && !isCancelClicked) {
+            delegate.photoCropDidExit(self)
+        }
         
     }
     
@@ -65,6 +79,7 @@ public class PhotoCropViewController: UIViewController {
         cancelButton.setTitleColor(configuration.buttonTextColor, for: .normal)
         cancelButton.titleLabel?.font = configuration.buttonTextFont
         cancelButton.onClick = {
+            self.isCancelClicked = true
             self.delegate.photoCropDidCancel(self)
         }
         view.addSubview(cancelButton)
@@ -101,6 +116,7 @@ public class PhotoCropViewController: UIViewController {
                 }
                 let result = self.photoCrop.compress(source: file)
                 DispatchQueue.main.async {
+                    self.isSubmitClicked = true
                     self.delegate.photoCropDidSubmit(self, cropFile: result)
                 }
             }
@@ -118,8 +134,7 @@ public class PhotoCropViewController: UIViewController {
         
         bottomLayoutConstraint = NSLayoutConstraint(item: separatorView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         
-        view.addConstraints([
-            
+        var layoutConstraintList: [NSLayoutConstraint] = [
             NSLayoutConstraint(item: photoCrop, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: photoCrop, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: photoCrop, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0),
@@ -150,8 +165,30 @@ public class PhotoCropViewController: UIViewController {
             NSLayoutConstraint(item: rotateButton, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: configuration.rotateButtonMarginLeft),
             NSLayoutConstraint(item: rotateButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: configuration.buttonWidth),
             NSLayoutConstraint(item: rotateButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: configuration.buttonHeight),
+        ]
+        
+        if (!configuration.guideLabelTitle.isEmpty) {
+            let guideLabel = UILabel()
+            guideLabel.text = configuration.guideLabelTitle
+            guideLabel.font = configuration.guideLabelTextFont
+            guideLabel.textColor = configuration.guideLabelTextColor
             
-        ])
+            guideLabel.sizeToFit()
+            guideLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            view.addSubview(guideLabel)
+            
+            topLayoutConstraint = NSLayoutConstraint(item: guideLabel, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+            
+            layoutConstraintList.append(
+                topLayoutConstraint!
+            )
+            layoutConstraintList.append(
+                NSLayoutConstraint(item: guideLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+            )
+        }
+        
+        view.addConstraints(layoutConstraintList)
 
         PhotoCropViewController.loadImage(url) { [weak self] image in
             
@@ -180,9 +217,15 @@ public class PhotoCropViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         if #available(iOS 11.0, *) {
+            if let constraint = topLayoutConstraint {
+                constraint.constant = configuration.guideLabelMarginTop + view.safeAreaInsets.top
+            }
             bottomLayoutConstraint.constant = -(configuration.separatorLineMarginBottom + view.safeAreaInsets.bottom)
         }
         else {
+            if let constraint = topLayoutConstraint {
+                constraint.constant = configuration.guideLabelMarginTop
+            }
             bottomLayoutConstraint.constant = -configuration.separatorLineMarginBottom
         }
         

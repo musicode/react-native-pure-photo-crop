@@ -79,6 +79,8 @@ photoCrop.open({
   width: 300,
   height: 200,
   // optional
+  guideLabelTitle: '',
+  // optional
   cancelButtonTitle: '取消',
   // optional
   resetButtonTitle: '重置',
@@ -91,30 +93,5 @@ photoCrop.open({
 })
 .catch(error => {
   // click cancel button
-})
-
-// compress an image without ui
-photoCrop.compress({
-  // image orignal info
-  path: '/User/xx/xx.jpg',
-  size: 10000,
-  width: 1000,
-  height: 600,
-
-  // compress limit info you can accepted
-  maxSize: 100 * 1024,
-  maxWidth: 3000,
-  maxHeight: 3000,
-
-  // compress quality, 0 - 1
-  quality: 0.5
-})
-.then(file => {
-  let { path, size, width, height } = file
-
-})
-.catch(error => {
-  let { code } = error
-
 })
 ```

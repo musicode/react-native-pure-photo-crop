@@ -27,6 +27,10 @@ import UIKit
     @objc public var overlayAlphaNormal: CGFloat = 1
     @objc public var overlayAlphaInteractive: CGFloat = 0.2
     
+    @objc public var guideLabelTextFont = UIFont.systemFont(ofSize: 14)
+    @objc public var guideLabelTextColor = UIColor.white
+    
+    @objc public var guideLabelMarginTop: CGFloat = 20
     @objc public var separatorLineWidth = 1 / UIScreen.main.scale
     @objc public var separatorLineColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3)
     @objc public var separatorLineSpacingTop: CGFloat = 10
@@ -38,6 +42,7 @@ import UIKit
     @objc public var rotateButtonMarginLeft: CGFloat = 20
     @objc public var rotateButtonImage = UIImage(named: "photo_crop_rotate")
     
+    @objc public var guideLabelTitle = ""
     @objc public var cancelButtonTitle = "取消"
     @objc public var resetButtonTitle = "重置"
     @objc public var submitButtonTitle = "确定"

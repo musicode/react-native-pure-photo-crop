@@ -8,5 +8,8 @@ import UIKit
     
     // 点击确定按钮
     func photoCropDidSubmit(_ photoCrop: PhotoCropViewController, cropFile: CropFile)
+    
+    // 用手势退出 controller
+    func photoCropDidExit(_ photoCrop: PhotoCropViewController)
 
 }

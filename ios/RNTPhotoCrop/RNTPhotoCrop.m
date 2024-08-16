@@ -18,6 +18,10 @@
     self.reject(@"-1", @"cancel", nil);
 }
 
+- (void)photoCropDidExit:(PhotoCropViewController *)photoCrop {
+    self.reject(@"-1", @"exit", nil);
+}
+
 - (void)photoCropDidSubmit:(PhotoCropViewController *)photoCrop cropFile:(CropFile *)cropFile {
     [photoCrop dismissViewControllerAnimated:true completion:nil];
     self.resolve(@{
@@ -47,6 +51,10 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options
     configuration.cropWidth = [RCTConvert int:options[@"width"]];
     configuration.cropHeight = [RCTConvert int:options[@"height"]];
 
+    NSString *guideLabelTitle = [RCTConvert NSString:options[@"guideLabelTitle"]];
+    if (guideLabelTitle != nil) {
+        configuration.guideLabelTitle = guideLabelTitle;
+    }
     NSString *cancelButtonTitle = [RCTConvert NSString:options[@"cancelButtonTitle"]];
     if (cancelButtonTitle != nil) {
         configuration.cancelButtonTitle = cancelButtonTitle;
@@ -64,41 +72,6 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options
     controller.configuration = configuration;
 
     [controller showWithUrl:[RCTConvert NSString:options[@"url"]]];
-
-}
-
-RCT_EXPORT_METHOD(compress:(NSDictionary*)options
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject) {
-
-    NSString *path = [RCTConvert NSString:options[@"path"]];
-    int size = [RCTConvert int:options[@"size"]];
-    int width = [RCTConvert int:options[@"width"]];
-    int height = [RCTConvert int:options[@"height"]];
-    int maxSize = [RCTConvert int:options[@"maxSize"]];
-    int maxWidth = [RCTConvert int:options[@"maxWidth"]];
-    int maxHeight = [RCTConvert int:options[@"maxHeight"]];
-    float quality = [RCTConvert float:options[@"quality"]];
-
-    CropFile *source = [[CropFile alloc] initWithPath:path size:size width:width height:height];
-    Compressor *compressor = [[Compressor alloc] initWithMaxWidth:maxWidth maxHeight:maxHeight maxSize:maxSize quality:quality];
-
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
-    dispatch_async(queue, ^{
-
-        CropFile *result = [compressor compressWithSource:source];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            resolve(@{
-                      @"path": result.path,
-                      @"size": @(result.size),
-                      @"width": @(result.width),
-                      @"height": @(result.height)
-                      });
-        });
-
-    });
 
 }
 
