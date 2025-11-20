@@ -78,7 +78,7 @@ class RNTPhotoCropModule(private val reactContext: ReactApplicationContext) : Re
         PhotoCropActivity.configuration = configuration
         PhotoCropActivity.callback = callback
 
-        PhotoCropActivity.newInstance(currentActivity!!, options.getString("url")!!)
+        PhotoCropActivity.newInstance(reactContext.currentActivity!!, options.getString("url")!!)
 
     }
 
